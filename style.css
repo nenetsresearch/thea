@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700&display=swap&subset=latin-ext");
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.pure-menu {
+  text-align: center;
+}
+
+.pure-menu-link {
+  color: #333;
+}
+
+.custom-toggle {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+.custom-toggle .bar {
+  background-color: #777;
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 100px;
+  position: absolute;
+  top: 18px;
+  right: 7px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.custom-toggle .bar:first-child {
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+  -ms-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+.custom-toggle.x .bar {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.custom-toggle.x .bar:first-child {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 47.999em) {
+  .custom-wrapper {
+    margin-bottom: 1em;
+    -webkit-font-smoothing: antialiased;
+    height: 2.1em;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    transition: height 0.5s;
+  }
+  .custom-wrapper.open {
+    height: 20em;
+  }
+  .pure-menu-active > .pure-menu-children, .pure-menu-allow-hover:hover > .pure-menu-children {
+    display: block;
+    position: relative;
+    left: auto;
+  }
+  .pure-menu-has-children > a {
+    font-weight: bolder;
+  }
+  .pure-menu-list .pure-menu-link {
+    font-size: 1em;
+  }
+  .custom-toggle {
+    display: block;
+  }
+  .custom-wrapper .pure-menu-item:not(:first-child) {
+    display: none;
+  }
+  .custom-wrapper.open .pure-menu-item {
+    display: block;
+  }
+}
+
+body {
+  background: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  font-family: 'Noto Serif', 'Open Sans', 'Source Sans Pro', sans-serif;
+}
+
+body header {
+  position: -webkit-sticky;
+  position: sticky;
+  background: #f1f1f1;
+  color: #efefef;
+  top: 0;
+}
+
+body header nav {
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
+}
+
+body header nav ul {
+  margin: 0 auto;
+  padding: 1em;
+}
+
+body header nav ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+body header nav ul li ul {
+  border: 1px solid #efefef;
+}
+
+body header nav ul li ul li {
+  padding: 0.5em;
+  border-bottom: 0.5px solid rgba(101, 160, 216, 0.36);
+  color: #efefef;
+}
+
+body main {
+  padding-bottom: 2em;
+}
+
+body main section {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 1em;
+  color: #4f2d12;
+  font-size: 18px;
+  background: #efefef;
+}
+
+body main section:nth-of-type(odd) {
+  background: #f3f0ed;
+}
+
+body main section:nth-of-type(odd) ::selection {
+  background: #ece9e7;
+}
+
+body main section:nth-of-type(even) {
+  background: #ece9e7;
+}
+
+body main section:nth-of-type(even) ::selection {
+  background: #fff;
+}
+
+body main section:empty {
+  padding: 0;
+}
+
+body main section .content {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body main section .hero {
+  min-height: 100vh;
+}
+
+body main section h1, body main section h2, body main section h3 {
+  text-shadow: none;
+  font-family: "Nunito", sans-serif;
+  font-variant-caps: all-petite-caps;
+  font-weight: 400;
+}
+
+body main section .participant {
+  display: block;
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
+}
+
+body footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  background: #333;
+  height: 150px;
+  border-top: 12px solid #333;
+}
+
+body footer:before {
+  content: '';
+  background-image: url("../img/nenets_tile3.png");
+  background-size: contain;
+  height: 40px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: -52px;
+}
+
+body footer .content {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.table-wrapper {
+  max-height: 520px;
+  overflow: auto;
+}
+
+table {
+  display: table;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+tr:nth-child(odd) {
+  background: #ece9e7;
+}
+
+th {
+  background-color: #4f2d12;
+  color: #d4d3d3;
+  position: sticky;
+  top: 0;
+}
+
+table th:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 5px 0 0;
+}
