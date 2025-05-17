@@ -18,7 +18,188 @@
   <p>This document is a draft outlining the techniques, considerations, and conventions used in annotating spoken language-specific features, such as prosodic tags, discourse-related phenomena, and structural relations, in the Tundra Nenets data included in the first release of the Nenets UD Treebank. It reflects the preliminary practices adopted during the annotation process and serves as a reference for ongoing development and refinement.</p>
 
   <h2>2. Spoken Phenomena: Tags and Relational Encoding</h2>
+<ol>
+  
+  <li>
+    <strong>Noises</strong>
+    <div>
+      <p><strong>TAG:</strong></p>
+      <ul>
+        <li><code>&lt;n_n&gt;</code> = Non-linguistic noise (speaker-generated): cough, laugh, sigh</li>
+        <li><code>&lt;w_n&gt;</code> = Environmental/world noise: background chatter, traffic, mic bump</li>
+      </ul>
+      <p><strong>ID:</strong> yes</p>
+      <p><strong>FORM:</strong> tag</p>
+      <p><strong>LEMMA:</strong> tag</p>
+      <p><strong>UPOS:</strong> X</p>
+      <p><strong>DEPREL:</strong> <code>noise</code> (attached to the element it <em>follows</em>)</p>
+      <p><strong>Gloss:</strong> NOISE</p>
+    </div>
+  </li>
 
+  <li>
+    <strong>Speech Interruptions</strong>
+    <p>Interruptions in the speaker's normal flow, including errors, hesitations, and restarts.</p>
+
+    <h4>1.1 Disfluency</h4>
+    <ul>
+      <li>
+        <code>&lt;a_d&gt;</code> = audible disfluency (e.g., "ahm", "uh", "erm")<br>
+        <strong>ID:</strong> lexical unit on its own<br>
+        <strong>FORM:</strong> <code>&lt;a_d&gt;</code><br>
+        <strong>LEMMA:</strong> <code>&lt;a_d&gt;</code><br>
+        <strong>UPOS:</strong> INTJ (interjection)<br>
+        <strong>DEPREL:</strong> discourse, attached to the adjacent (following) word<br>
+        <strong>Gloss:</strong> DISFL
+      </li>
+      <li>
+        <code>&lt;a&gt;</code> = articulatory lengthening (hesitation by prolongation)<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Attached to the relevant lexeme without space<br>
+        <strong>LEMMA:</strong> NO<br>
+        <strong>UPOS:</strong> not relevant<br>
+        <strong>DEPREL:</strong> not relevant<br>
+        <strong>Gloss:</strong> not relevant
+      </li>
+    </ul>
+
+    <h4>1.2 Cut-offs</h4>
+    <ul>
+      <li>
+        <code>&lt;u_l&gt;</code> = unfinished lexeme<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Attached to the lexeme without space<br>
+        <strong>LEMMA:</strong> full expected word<br>
+        <strong>UPOS:</strong> not relevant<br>
+        <strong>DEPREL:</strong> not relevant<br>
+        <strong>Gloss:</strong> not relevant
+      </li>
+    </ul>
+
+    <h4>1.3 False Start</h4>
+    <ul>
+      <li>
+        <code>&lt;f_s&gt;</code> = false start<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Attached to the lexeme without space: <code>&lt;f_s&gt;word</code><br>
+        <strong>LEMMA:</strong> underlying lemma (without tag)<br>
+        <strong>UPOS:</strong> POS of base word<br>
+        <strong>DEPREL:</strong> reparandum; attached to the node that repairs it<br>
+        <strong>Gloss:</strong> gloss of the intended word
+      </li>
+    </ul>
+
+    <h4>1.4 Repetition</h4>
+    <ul>
+      <li>
+        <code>&lt;e_r&gt;</code> = exact repetition<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Attached to the lexeme: <code>&lt;e_r&gt;word</code><br>
+        <strong>LEMMA:</strong> underlying lemma (without tag)<br>
+        <strong>UPOS:</strong> POS of base word<br>
+        <strong>DEPREL:</strong> reparandum; attached to the next instance<br>
+        <strong>Gloss:</strong> gloss of base/intended word
+      </li>
+      <li>
+        <code>&lt;p_r&gt;</code> = partial repetition<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Attached to the lexeme: <code>&lt;p_r&gt;word</code><br>
+        <strong>LEMMA:</strong> underlying lemma (without tag)<br>
+        <strong>UPOS:</strong> POS of base word<br>
+        <strong>DEPREL:</strong> reparandum; attached to the next instance<br>
+        <strong>Gloss:</strong> gloss of base/intended word
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<ol>
+  <!-- Item 1: Noises (Already included earlier) -->
+
+  <!-- Item 2: Speech Interruptions (Already included earlier) -->
+
+  <li>
+    <strong>Connected Speech</strong>
+    <p>Phenomena where word boundaries become less distinct due to natural speech flow:</p>
+    <ul>
+      <li>
+        <code>&lt;m_l&gt;</code> = merged lexemes<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Lexemes must be separated; tag <code>&lt;m_l&gt;</code> precedes the next lexeme without space (e.g., <code>сюрте &lt;m_l&gt;хэя</code>)<br>
+        <strong>LEMMA:</strong> underlying lemma (without the tag)<br>
+        <strong>UPOS:</strong> POS of the lexeme<br>
+        <strong>DEPREL:</strong> As per syntax — based on the lexeme’s role<br>
+        <strong>Gloss:</strong> gloss of the lemma
+      </li>
+    </ul>
+    <p><em>Note:</em> This also includes sandhi effects (sound changes across word boundaries).</p>
+  </li>
+
+  <li>
+    <strong>Lexical Error</strong>
+    <p>Incorrect word use:</p>
+    <ul>
+      <li>
+        <code>&lt;u_w&gt;</code> = unusual word (word choice error)<br>
+        <strong>ID:</strong> not relevant<br>
+        <strong>FORM:</strong> Tag <code>&lt;u_w&gt;</code> attached directly to the lexeme (e.g., <code>&lt;u_w&gt;word</code>)<br>
+        <strong>LEMMA:</strong> lemma of the incorrect word (without the tag)<br>
+        <strong>UPOS:</strong> POS of the incorrect word<br>
+        <strong>DEPREL:</strong> syntactic function as if correct<br>
+        <strong>Gloss:</strong> literal gloss of the incorrect word
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Pauses</strong>
+    <ul>
+      <li>
+        <code>&lt;s_p&gt;</code> = silent pause (no vocalization for a measurable duration)
+      </li>
+      <li>
+        <code>&lt;b_p&gt;</code> = breathing pause
+      </li>
+    </ul>
+
+    <p><strong>a) Structural Pauses</strong></p>
+    <ul>
+      <li>
+        Occur at clear syntactic boundaries (e.g., end of main/embedded clauses, sentence-final)<br>
+        <strong>ID:</strong> yes<br>
+        <strong>FORM:</strong> tag<br>
+        <strong>LEMMA:</strong> tag<br>
+        <strong>UPOS:</strong> PUNCT<br>
+        <strong>DEPREL:</strong> PUNCT — attached to the head of the clause/sentence it <em>follows</em><br>
+        <strong>Note:</strong> The final punctuation always depends on the root<br>
+        <strong>Gloss:</strong> SIL
+      </li>
+    </ul>
+
+    <p><strong>b) Disfluency-Related Pauses</strong></p>
+    <ul>
+      <li>
+        Occur inside phrases or between constituents, not marking structure<br>
+        <strong>ID:</strong> yes<br>
+        <strong>FORM:</strong> tag<br>
+        <strong>LEMMA:</strong> tag<br>
+        <strong>UPOS:</strong> X<br>
+        <strong>DEPREL:</strong> disfluency — attached to the element it <em>follows</em> (e.g., <code>&lt;a_d&gt;</code>)<br>
+        <strong>Gloss:</strong> PAUSE
+      </li>
+    </ul>
+  </li>
+</ol>
+  
+
+
+  
+</ol>
+
+
+
+
+  
   <h2>3. Attribution and Reuse</h2>
   <p>This document is part of the [Project Name] and is freely available for reuse under a [license type, e.g., CC BY 4.0] license.</p>
 
